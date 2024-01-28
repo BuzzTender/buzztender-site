@@ -11,33 +11,12 @@ import { JSX, SVGProps } from "react";
 import Image from "next/image";
 import yourFirstImage from "/public/bt-launch.png"; // import your images
 import yourSecondImage from "/public/pace-launch.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Home() {
   return (
-    <div className="flex flex-col h-screen justify-end">
-      <div className="flex flex-row w-full">
-        <div className="relative overflow-hidden w-1/2 h-64">
-          <Image
-            src={yourFirstImage}
-            layout="fill"
-            objectFit="cover"
-            objectPosition="top"
-          />
-        </div>
-        <div className="relative overflow-hidden w-1/2 h-64">
-          <Image
-            src={yourSecondImage}
-            layout="fill"
-            objectFit="cover"
-            objectPosition="top"
-          />
-        </div>
-      </div>
-    </div>
-  );
-  return (
-    <div key="1" className="flex flex-col min-h-screen bg-white text-black">
-      <header className="w-full bg-white py-4 px-6 flex items-center border-b border-gray-200">
+    <div key="1" className="flex flex-col min-h-screen">
+      <header className="w-full bg-[#50d71e] py-4 px-6 flex items-center border-b border-gray-200">
         <img
           alt="Logo"
           className="h-6 w-auto"
@@ -52,19 +31,19 @@ export default function Home() {
             <div className="grid gap-6 items-center">
               <div className="flex flex-col justify-center space-y-8 text-center">
                 <div className="space-y-2">
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none bg-clip-text text-[#FCB338]">
+                  <h1 className="text-3xl drop-shadow-xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none bg-clip-text text-[#FCB338]">
                     BuzzTender
                   </h1>
                   <p className="max-w-[600px] text-gray-700 md:text-xl dark:text-gray-900 mx-auto">
                     Connect. Compete. Repeat.
                   </p>
                 </div>
-                <div className="grid xs:grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-4">
                   <div className="border-gray-800 p-4 rounded-lg">
                     <div className="flex flex-col items-center space-y-2">
                       <img
                         alt="BuzzTender"
-                        className="h-16 w-16 rounded-lg"
+                        className="h-16 w-16 rounded-lg drop-shadow-md"
                         src="/bt-app-icon.png"
                       />
                       <h2 className="text-xl font-bold text-black">
@@ -72,26 +51,25 @@ export default function Home() {
                       </h2>
                       <div className="grid grid-cols-2 gap-8">
                         <Button variant={"outline"} asChild>
-                          <Link href="/login">App Store</Link>
+                          <Link href="/login">
+                            <FontAwesomeIcon icon={["fab", "apple"]} />
+                            App Store
+                          </Link>
                         </Button>
                         <Button variant={"outline"} asChild>
                           <Link href="/login">Google Play</Link>
                         </Button>
                       </div>
                     </div>
-                    <div className="mt-4">
-                      <img
-                        alt="BuzzTender Screenshot"
-                        className="w-full"
-                        src="/bt-launch.png"
-                      />
+                    <div className="mt-8">
+                      <Image src={yourFirstImage} className="object-fit" />
                     </div>
                   </div>
                   <div className="border-gray-800 p-4 rounded-lg">
                     <div className="flex flex-col items-center space-y-2">
                       <img
                         alt="BT Pace"
-                        className="h-16 w-16 rounded-lg"
+                        className="h-16 w-16 rounded-lg drop-shadow-md"
                         src="/pace-app-icon.png"
                       />
                       <h2 className="text-xl font-bold text-black">BT Pace</h2>
@@ -105,11 +83,7 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="mt-4">
-                      <img
-                        alt="App 2 Screenshot"
-                        className="w-full"
-                        src="/pace-launch.png"
-                      />
+                      <Image src={yourSecondImage} className="w-full" />
                     </div>
                   </div>
                 </div>
